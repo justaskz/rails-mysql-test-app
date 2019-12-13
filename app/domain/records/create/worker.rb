@@ -3,5 +3,6 @@ class Records::Create::Worker
 
   def perform
     Records::Create.run
+    Records::Create::Worker.perform_async
   end
 end

@@ -3,6 +3,6 @@ RSpec.describe Records::Create::Worker, '#perform' do
 
   specify do
     expect(Records::Create).to receive(:run)
-    subject
+    expect { subject }.to change(described_class.jobs, :size).by(1)
   end
 end

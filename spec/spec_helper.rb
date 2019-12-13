@@ -2,6 +2,7 @@ ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
+require 'sidekiq/testing'
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -18,7 +19,7 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation, except: %w(ar_internal_metadata))
+    DatabaseCleaner.clean_with(:truncation, except: %w[ar_internal_metadata])
   end
 
   config.before(:each) do |example|
@@ -28,5 +29,6 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+    Sidekiq::Worker.clear_all
   end
 end
