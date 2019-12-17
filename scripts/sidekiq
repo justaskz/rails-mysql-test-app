@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+bundle install --deployment --without development test
+bundle exec sidekiq

@@ -1,0 +1,37 @@
+---
+version: '3.7'
+
+services:
+  app:
+    build: .
+    command: /bin/bash scripts/server
+    depends_on:
+      - redis
+
+    # volumes:
+      # - bundle_path:/bundle
+    # stdin_open: true
+    # tty: true
+    # build: .
+    # environment:
+      # - BUNDLE_PATH=/bundle/vendor
+    # image:
+
+
+  sidekiq:
+    build: .
+    command: /bin/bash scripts/sidekiq # bundle exec sidekiq # -C config/sidekiq.yml
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:5.0.7
+    # volumes:
+    #   - redis:/data
+  #   ports:
+  #     - 6379
+
+
+# volumes:
+  # redis:
+  # bundle_path:

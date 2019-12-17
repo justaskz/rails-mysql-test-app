@@ -23,3 +23,9 @@ sidekiq:
 
 console:
 	@ bundle exec rails console
+
+docker_build:
+	@ bash docker.sh build
+
+docker_run:
+	@ bash docker.sh run

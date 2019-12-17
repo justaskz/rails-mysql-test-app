@@ -18,5 +18,7 @@ test:
 production:
   <<: *default
   database: rails_mysql_test_app
+  host: <%= ENV['DATABASE_HOST'] %>
+  port: <%= ENV['DATABASE_PORT'] %>
   username: <%= ENV['RAILS_MYSQL_TEST_APP_DATABASE_USERNAME'] %>
   password: <%= ENV['RAILS_MYSQL_TEST_APP_DATABASE_PASSWORD'] %>
