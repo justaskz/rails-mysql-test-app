@@ -1,3 +1,10 @@
 * TASKS
   - records
     id | version
+
+
+GEM_HOME
+GEM_PATH
+BUNDLE_PATH
+BUNDLE_APP_CONFIG
+3dfcec66a9ecfaa7a73134080878f63

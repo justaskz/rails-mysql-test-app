@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+bundle install --deployment --without development test
+bundle exec rails db:migrate
+bundle exec rails server --binding 0.0.0.0 -p 3000
