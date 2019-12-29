@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '~> 2.6'
+
 gem 'bootsnap', '~> 1.4.5', require: false
 gem 'lean_interactor'
 gem 'mysql2', '~> 0.5.3'
@@ -15,8 +17,6 @@ group :development do
   gem 'better_errors'
   gem 'bullet'
   gem 'listen'
-  gem 'spring'
-  gem 'spring-commands-rspec'
 end
 
 group :test do
@@ -29,4 +29,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-its'
   gem 'rspec-rails'
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end

@@ -11,8 +11,11 @@ function build {
 }
 
 function start_app {
+  VOLUME_FOLDER=/tmp/docker/
+  VOLUME=/volume
+
   docker run \
-    -v /vagrant/tmp:/bundle \
+    -v $VOLUME_FOLDER:$VOLUME \
     -it --rm \
     -p 3000:3000 \
     app:latest

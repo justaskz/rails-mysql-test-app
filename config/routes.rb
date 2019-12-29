@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  mount Sidekiq::Web => '/'
+  mount Sidekiq::Web => '/sidekiq'
 
-  resource :records, only: [:new, :edit]
+  root 'records#index'
+
+  resources :records, only: [:index]
+  resource :record, only: [:new, :edit]
 end
