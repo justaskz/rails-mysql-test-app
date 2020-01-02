@@ -21,6 +21,7 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'mock_redis', '~> 0.22.0'
 end
 
 group :development, :test do
