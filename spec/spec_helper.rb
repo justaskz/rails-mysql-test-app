@@ -3,6 +3,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'sidekiq/testing'
+require 'mock_redis'
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -25,6 +26,10 @@ RSpec.configure do |config|
   config.before(:each) do |example|
     DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
     DatabaseCleaner.start
+
+    allow(Redis)
+      .to receive(:new)
+      .and_return(MockRedis.new)
   end
 
   config.after(:each) do

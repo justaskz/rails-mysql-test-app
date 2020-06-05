@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   resources :records, only: [:index]
   resource :record, only: [:new, :edit]
+
+  get 'stop', to: 'records#stop'
 end
