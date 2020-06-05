@@ -1,4 +1,4 @@
-
+---
 default: &default
   adapter: mysql2
   encoding: utf8mb4
@@ -9,7 +9,14 @@ default: &default
 
 development:
   <<: *default
-  database: rails_mysql_test_app_development
+  database: app
+  host: 192.168.33.10
+  username: app
+  password: app
+  port: 3306
+  socket: /tmp/remote.mysql.sock
+  # host: <%= ENV['DATABASE_HOST'] %>
+  # port: <%= ENV['DATABASE_PORT'] %>
 
 test:
   <<: *default
