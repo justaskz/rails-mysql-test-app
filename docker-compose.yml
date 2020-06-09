@@ -2,36 +2,37 @@
 version: '3.7'
 
 services:
-  # app:
-  #   build: .
-  #   command: /bin/bash scripts/server
-  #   depends_on:
-  #     - redis
+  app:
+    build: .
+    container_name: app
+    image: app
+    command: bash scripts/server
+    volumes:
+      - .:/app
+      - bundler:/usr/local/bundle
+    depends_on:
+      - redis
+    ports:
+      - '3000:3000'
 
-    # volumes:
-      # - bundle_path:/bundle
-    # stdin_open: true
-    # tty: true
-    # build: .
-    # environment:
-      # - BUNDLE_PATH=/bundle/vendor
-    # image:
-
-
-  # sidekiq:
-  #   build: .
-  #   command: /bin/bash scripts/sidekiq # bundle exec sidekiq # -C config/sidekiq.yml
-  #   depends_on:
-  #     - redis
+  sidekiq:
+    container_name: sidekiq
+    image: app
+    command: bash scripts/sidekiq
+    volumes:
+      - .:/app
+      - bundler:/usr/local/bundle
+    depends_on:
+      - redis
 
   redis:
-    image: redis:5.0.7
-    # volumes:
-      # - redis:/data
+    container_name: redis
+    image: redis:6.0.4
+    volumes:
+      - redis:/data
     ports:
-      - 6379
+      - '6379:6379'
 
-
-# volumes:
-  # redis:
-  # bundle_path:
+volumes:
+  bundler:
+  redis:
