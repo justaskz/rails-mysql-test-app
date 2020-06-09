@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '~> 2.6'
+ruby '~> 2.7'
 
 gem 'bootsnap', '~> 1.4.5', require: false
 gem 'lean_interactor'

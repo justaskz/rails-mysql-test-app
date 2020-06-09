@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-DATABASE_HOST="192.168.33.11"
-DATABASE_PORT="3306"
-
-bundle install --deployment --without development test
+bundle install
 bundle exec rails db:migrate
+rm tmp/pids/server.pid
 bundle exec rails server --binding 0.0.0.0 -p 3000

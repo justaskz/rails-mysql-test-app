@@ -1,6 +1,5 @@
 class RecordsController < ApplicationController
   def index
-    render json: payload
   end
 
   def new
