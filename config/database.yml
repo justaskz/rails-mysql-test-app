@@ -3,20 +3,18 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: app
   username: root
   password: 'a'
   host: localhost
 
 development:
   <<: *default
-  database: app
-  host: 192.168.33.10
-  username: app
-  password: app
-  port: 3306
-  socket: /tmp/remote.mysql.sock
-  # host: <%= ENV['DATABASE_HOST'] %>
-  # port: <%= ENV['DATABASE_PORT'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  port: <%= ENV['DATABASE_PORT'] %>
+  # socket: /tmp/remote.mysql.sock
 
 test:
   <<: *default
