@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 source .env
-bundle exec sidekiq
+bundle exec rails console

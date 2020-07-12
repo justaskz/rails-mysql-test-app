@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 
-bundle install
-bundle exec rails db:migrate
-rm tmp/pids/server.pid
+source .env
 bundle exec rails server --binding 0.0.0.0 -p 3000

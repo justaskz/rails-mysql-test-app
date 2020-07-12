@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
+  root 'stats#index'
+
+  resources :workers, only: %i[create destroy]
+
   mount Sidekiq::Web => '/sidekiq'
-
-  root 'records#index'
-
-  resources :records, only: [:index]
-  resource :record, only: [:new, :edit]
-
-  get 'stop', to: 'records#stop'
 end

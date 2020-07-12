@@ -1,6 +1,14 @@
 * TASKS
-  - records
-    id | version
+  [ ] Implement stop button
+  [ ] Implement flush button
+  [X] Implement count for Create workers
+  [X] Implement count for Update workers
+  [X] Implement error count
+  [X] Implement worker id
+  [ ] Add signiture for record
+  [ ] Implement scripts to start sidekiq and server
+  [ ] Move DB creds to env
+  [ ] Solve issues with redis url
 
 
 GEM_HOME

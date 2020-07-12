@@ -3,13 +3,10 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: app
-  username: root
-  password: 'a'
-  host: localhost
 
-development:
+development: &development
   <<: *default
+  database: app_development
   host: <%= ENV['DATABASE_HOST'] %>
   username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
@@ -17,8 +14,8 @@ development:
   # socket: /tmp/remote.mysql.sock
 
 test:
-  <<: *default
-  database: rails_mysql_test_app_test
+  <<: *development
+  database: app_test
 
 production:
   <<: *default
