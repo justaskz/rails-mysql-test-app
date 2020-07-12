@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '~> 2.7'
+ruby '~> 2.6'
 
-gem 'bootsnap', '~> 1.4.5', require: false
+gem 'bootsnap', '~> 1.4', require: false
 gem 'lean_interactor'
 gem 'mysql2', '~> 0.5.3'
 gem 'puma', '~> 4.3.1'
-gem 'rails', '~> 6.0.1'
+gem 'rails', '~> 6.0.3.2'
 gem 'redis', '~> 4.1.3'
 gem 'sidekiq', '~> 6.0.3'
 gem 'sidekiq-cron'

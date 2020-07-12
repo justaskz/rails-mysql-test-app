@@ -1,0 +1,14 @@
+<div><%= link_to 'Sidekiq', '/sidekiq' %></div>
+
+<%= form_with(url: workers_path(action_type: :create)) do %>
+  <%= submit_tag 'Spawn Create worker' %>
+<% end %>
+
+<%= form_with(url: workers_path(action_type: :update)) do %>
+  <%= submit_tag 'Spawn Update worker' %>
+<% end %>
+
+<div>Records: <%= Record.count %></div>
+<div>Create Workers: <%= App.redis.hget(:worker_count, :create) || 0 %></div>
+<div>Update Workers: <%= App.redis.hget(:worker_count, :update) || 0 %></div>
+<div>Sidekiq Errors: <%= Sidekiq::Failures.count %></div>
